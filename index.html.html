@@ -1,0 +1,159 @@
+<html>
+<head>
+<title> ecommerce </title>
+
+</head>
+
+<body>
+<style>
+.container{
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	position:absolute;
+	width:max-content;
+}
+
+.card{
+	border:1px solid black;
+	width:max-content;
+	text-align:center;
+	display:inline-block;
+	margin:5px;
+}
+
+.card img{
+	width:300px;
+	padding:5px;
+}
+
+.title{
+	font-weight:bold;
+	margin:20px;
+}
+
+button{
+	border:2px solid #e1701a;
+	background:#f7a440;
+	color:white;
+	font-weight:bold;
+	margin:20px;
+	padding: 5px 10px;
+}
+
+button:hover{
+	box-shadow:0 0 5px 5px #e1701a inset;
+}
+
+.cart{
+	width:250px;
+	float:right;
+	text-align:center;
+	border:1px solid black;
+	overflow-y:scroll;
+	height:100%;
+}
+.cartImg{
+	width:200px;
+}
+</style>
+<script>
+var BucketItems = [];
+    var totalPrice = 0;
+
+    function addToCart(product, price) {
+      BucketItems.push(product);
+      totalPrice += price;
+      alert(product + " is added to Cart!");
+    }
+
+    function displayBucket() {
+      var BucketElement = document.getElementById("Bucket");
+      BucketElement.innerHTML = "";
+      for (var i = 0; i < BucketItems.length; i++) {
+        var item = BucketItems[i];
+        var itemElement = document.createElement("p");
+        itemElement.textContent = item;
+        BucketElement.appendChild(itemElement);
+      }
+    }
+
+    function checkout() {
+      alert("Thanks for purchasing! Total Price: " + "₱" + totalPrice );
+    }
+
+
+    function displayBucket() {
+      alert("Products in Cart: " + BucketItems.join(", "));
+    }
+</script>
+
+<div class="container">
+	<div class="card" id="item1">
+		<img src="victor1.jpg">
+		<div class="title">Victor White ₱3000</div>
+		<div>
+			<label>TENSION: </label>
+			<select>
+				<option>24</option>
+				<option>26</option>
+				<option>28</option>
+				<option>30</option>
+			</select>
+		</div>	
+		<button onclick="addToCart('White',3000)"> Add To Cart </button>
+	</div>
+	      <div class="card" id="item2">
+		<img src="victor2.jpg">
+		<div class="title">Victor Pink ₱4000</div>
+		<div>
+			<label>TENSION: </label>
+			<select>
+				<option>24</option>
+				<option>26</option>
+				<option>28</option>
+				<option>30</option>
+			</select>
+		</div>	
+		<button onclick="addToCart('Pink',4000)"> Add To Cart </button>
+	      </div>
+		 
+		<div class="card" id="item3">
+			<img src="victor3.jpg">
+			<div class="title">Victor Blue ₱5000</div>
+			<div>
+				<label>TENSION: </label>
+				<select>
+					<option>24</option>
+					<option>26</option>
+					<option>28</option>
+					<option>30</option>
+			</select>
+		</div>	
+		<button onclick="addToCart('Blue', 5000)"> Add To Cart </button>
+	      </div>	
+
+<div class="card" id="item3">
+			<img src="victor4.jpg">
+			<div class="title">Victor Red ₱6000</div>
+			<div>
+				<label>TENSION: </label>
+				<select>
+					<option>24</option>
+					<option>26</option>
+					<option>28</option>
+					<option>30</option>
+			</select>
+		</div>	
+		<button onclick="addToCart('Red', 6000)"> Add To Cart </button>
+	      </div>			  
+</div>
+    
+	<div id="Bucket"></div>
+    <button class="btn1" onclick="displayBucket()">CART</button>
+  </main>
+  <button class="btn3" onclick="checkout()">CHECKOUT</button>
+
+
+</body>
+</html>
